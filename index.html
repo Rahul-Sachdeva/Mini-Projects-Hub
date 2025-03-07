@@ -1,0 +1,108 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Projects Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #121212; color: #ffffff; }
+        .project-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            padding: 16px;
+            border-radius: 8px;
+            background-color: #1f1f1f;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            color: white;
+        }
+        .project-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+            background-color: #292929;
+        }
+        .project-img {
+            width: 500px;
+            height: 500px;
+            object-fit: contain;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .project-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+            text-align: center;
+        }
+        .search-bar {
+            width: 500px;
+            max-width: 500px;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            background-color: #1f2937;
+            color: white;
+            border: 1px solid #4b5563;
+        }
+        .body{
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body class="body">
+    <h1 class="text-3xl font-bold text-center mb-6">Mini Projects Hub</h1>
+    
+    <input type="text" id="search" placeholder="Search projects..." 
+        class="search-bar">
+    
+    <div id="projectsGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        <!-- Projects will be inserted here dynamically -->
+    </div>
+
+    <script>
+        const projects = [
+            { name: "Calculator Project", url: "./Calculator Project/index.html", image: "./images/Calculator.png" },
+            { name: "Snake Game", url: "./Snake Game/index.html", image: "./images/Snake Game.png" },
+            { name: "Tic Tac Toe", url: "./Tic Tac Toe/index.html", image: "./images/Tic Tac Toe.png" },
+            { name: "Bouncing Balls", url: "./Bouncing Balls/index.html", image: "./images/Bouncing Balls.png" },
+            { name: "Emoji With Effects", url: "./Emoji With Effects/index.html", image: "./images/Emoji With Effects.png" },
+            { name: "Sliding Puzzle", url: "./Sliding Puzzle/index.html", image: "./images/Sliding Puzzle.png" },
+            { name: "Solar System", url: "./Solar System/index.html", image: "./images/Solar System.png" },
+            { name: "Typing Game", url: "./Typing Game/index.html", image: "./images/Typing Game.png" },
+            { name: "Heart Trail Animation", url: "./Heart Trail Animation/index.html", image: "./images/Heart Trail Cursor.png" },
+            { name: "Netflix UI Clone", url: "./Responsive Netflix Clone/index.html", image: "./images/Netflix Clone.png" },
+            { name: "Task Manager", url: "https://github.com/Rahul-Sachdeva/task-manager", image: "./images/Task Manager.png" },
+            { name: "Book Management System", url: "https://github.com/Rahul-Sachdeva/-book-management-system", image: "./images/Book Management System.png" }
+        ];
+ 
+        const projectsGrid = document.getElementById("projectsGrid");
+        const searchInput = document.getElementById("search");
+        
+        function displayProjects(filter = "") {
+            projectsGrid.innerHTML = "";
+            projects
+                .filter(p => p.name.toLowerCase().includes(filter.toLowerCase()))
+                .forEach(p => {
+                    const projectCard = document.createElement("a");
+                    projectCard.href = p.url;
+                    projectCard.className = "project-card";
+                    projectCard.innerHTML = `
+                        <img src="${p.image}" alt="${p.name}" class="project-img">
+                        <h2 class='project-title'>${p.name}</h2>
+                    `;
+                    projectsGrid.appendChild(projectCard);
+                });
+        }
+        
+        searchInput.addEventListener("input", () => displayProjects(searchInput.value));
+        
+        displayProjects(); // Initial Load
+    </script>
+</body>
+</html>
