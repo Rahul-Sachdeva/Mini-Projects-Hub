@@ -1,0 +1,111 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    background-color: gray;
+}
+
+.face{
+    width: 80%;
+    max-width: 450px;
+    height: 75vh;
+    aspect-ratio: 1/1;
+    background-color: rgb(255, 213, 0);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    outline: 13px solid black;
+    border: 13px solid rgba(255, 187, 0, 0.9);
+    box-shadow: 1px 1px 2rem black;
+}
+
+.eyes{
+    width: 80%;
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.eyes .glow {
+    border: 2px solid black;
+    box-shadow: 0 0 10px 5px rgba(255, 255, 0, 0.5); /* Yellow glow effect */
+}
+
+.leftEye, .rightEye{
+    width: 45%;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background-color: white;
+    overflow: hidden;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    border: 0.5px solid black;
+    box-shadow: 1px 1px 1rem gray;
+}
+
+.leftPupil, .rightPupil{
+    width: 50%;
+    height: 50%;
+    background-color: black;
+    border-radius: 50%;
+}
+
+.mouth{
+    width: 30%;
+    height: 15%;
+    background: radial-gradient(rgb(174, 125, 33), rgb(121, 81, 5), black);
+    margin-bottom: 80px;
+    border-radius: 50%;
+    border: 2px solid rgb(130, 92, 3);
+    transition: all linear 0.25s;
+    overflow: hidden;
+    position: relative;
+}
+.mouth:hover {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 4px;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    width: 35%;
+}
+
+.mouth.smile {
+    border-radius: 10% 10% 50% 50%;  /* Change to smile shape */
+}
+
+.mouth.frown {
+    border-radius: 40% 40% 20% 20%;  /* Change to frown shape */
+}
+
+.mouth.watch {
+    border-radius: 50% 50% 50% 50%;
+}
+
+.mouth:hover .tooth {
+    background-color: white; /* Color of the teeth */
+}
+
+.mouth .tooth {
+    width: 100%; /* Width of each tooth */
+    height: 100%; /* Height of each tooth */
+}
+
+.mouth .tooth:nth-child(odd) {
+    grid-row: 1; /* Position the odd teeth in the first row */
+}
+
+.mouth .tooth:nth-child(even) {
+    grid-row: 2; /* Position the even teeth in the second row */
+}
+
+
+
+
